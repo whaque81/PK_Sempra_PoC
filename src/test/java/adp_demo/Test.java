@@ -1,7 +1,5 @@
 package adp_demo;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Set;
@@ -11,6 +9,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.sempra.hr.adp.home.HomePage;
 import org.sempra.hr.adp.login.LoginPage;
+import org.sempra.hr.adp.recruitingdesktop.ModifyReqPage;
+import org.sempra.hr.adp.recruitingdesktop.PublishReq;
 import org.sempra.hr.adp.recruitingdesktop.RecruitingDesktopPage;
 import org.sempra.hr.adp.recruitingdesktop.ReqFormPage;
 
@@ -85,13 +85,34 @@ public class Test {
 		ReqFormPage.setInternalQualification(driver, "This is a Test Qualification");
 		ReqFormPage.setApprover(driver, "Wasim");
 		ReqFormPage.createReqs(driver);
-		Thread.sleep(6000);
-		Robot rb =new Robot();
+		Thread.sleep(4000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(2000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(2000);
+		driver.switchTo().window(NewWindow);
+		String ReqNumber = ReqFormPage.getReqNumber(driver);
+		ReqFormPage.click_HomeMenu(driver);
+		ReqFormPage.click_RecruitingDesktopMenuItem(driver);
+		Thread.sleep(4000);
+		RecruitingDesktopPage.selectDisposition(driver, "Granted");
+		RecruitingDesktopPage.click_SubmitBtn(driver); //Granted
+		Thread.sleep(2000);
+		RecruitingDesktopPage.click_Req(driver, ReqNumber);
+		Thread.sleep(4000);
+		ModifyReqPage.selectReqStatus(driver, "Active");
+		ModifyReqPage.saveModifiedReq(driver,NewWindow ); //Active
+		ModifyReqPage.selectPublishTab(driver);
+		PublishReq.click_PostLink(driver);
+		PublishReq.PostJobToCareerSite(driver); //Posted
+		System.out.println("Posted"); 
+		
+		/*Robot rb =new Robot();
 		rb.keyPress(KeyEvent.VK_ENTER);
 		rb.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
 		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);*/
 
 		//driver.findElement(By.xpath("//*[contains(text(), 'OK')]")).click();
 		

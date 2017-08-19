@@ -47,6 +47,10 @@ public class ReqFormPage {
 	public static By InternalQualiLink = By.xpath("//div[@id='tinymce_rmvlink_zzreqInternalQualifications_RTiCustomReq']/a");
 	public static By ApproverTxtBox= By.name("approver1ID_RTiReq_ms_ac_sf");
 	public static By CreateReqBtn = By.id("_reqform_create2_button");
+	public static By HomeMenu = By.xpath("//nobr[text()='Home']");
+	public static By RecruitingDesktopMenuItem = By.linkText("Recruiting Desktop");
+	public static By ReqNumberText = By.xpath("//*[@id='no_header_open'][3]/td/table/tbody/tr[1]/td/table/tbody/tr/td[3]/span");
+	
 	
 	public static void selectUnionJob(WebDriver driver,String strValue){
 		List<WebElement> dropdowns = driver.findElements(UnionJobDropDown);
@@ -263,6 +267,7 @@ public class ReqFormPage {
 	public static void setApprover(WebDriver driver, String strValue) throws Exception{
 		driver.findElement(ApproverTxtBox).click();
 		driver.findElement(ApproverTxtBox).sendKeys(strValue);
+		Thread.sleep(1000);
 		driver.findElement(ApproverTxtBox).sendKeys(Keys.SPACE );
 		Thread.sleep(1000);
 		driver.findElement(ApproverTxtBox).sendKeys(Keys.ARROW_DOWN);
@@ -272,6 +277,23 @@ public class ReqFormPage {
 	
 	public static void createReqs(WebDriver driver){
 		driver.findElement(CreateReqBtn).click();
+		
+	}
+	
+	public static String getReqNumber(WebDriver driver){
+		String ReqNumber = driver.findElement(ReqNumberText).getText().toString();
+		return ReqNumber;
+	}
+	
+	public static void click_HomeMenu(WebDriver driver){
+		
+		driver.findElement(HomeMenu).click();
+		
+	}
+
+public static void click_RecruitingDesktopMenuItem(WebDriver driver){
+		
+		driver.findElement(RecruitingDesktopMenuItem).click();
 		
 	}
 	
