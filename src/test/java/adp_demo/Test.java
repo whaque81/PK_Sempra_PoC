@@ -94,6 +94,7 @@ public class Test {
 		Thread.sleep(2000);
 		driver.switchTo().window(NewWindow);
 		String ReqNumber = ReqFormPage.getReqNumber(driver);
+		
 		ReqFormPage.click_HomeMenu(driver);
 		ReqFormPage.click_RecruitingDesktopMenuItem(driver);
 		Thread.sleep(4000);
