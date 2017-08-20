@@ -7,6 +7,7 @@ import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.sempra.hr.adp.careersite.CareerSiteSelfServicePage;
 import org.sempra.hr.adp.home.HomePage;
 import org.sempra.hr.adp.login.LoginPage;
 import org.sempra.hr.adp.recruitingdesktop.ModifyReqPage;
@@ -17,6 +18,7 @@ import org.sempra.hr.adp.recruitingdesktop.ReqFormPage;
 public class Test {
 	
 	public static String NewWindow = "";
+	public static String NewWindow_1 = "";
 
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
@@ -106,6 +108,21 @@ public class Test {
 		PublishReq.click_PostLink(driver);
 		PublishReq.PostJobToCareerSite(driver); //Posted
 		System.out.println("Posted"); 
+		Thread.sleep(4000);
+		RecruitingDesktopPage.click_HomeMenu(driver);
+		RecruitingDesktopPage.click_SempraEnergyCSMenuItem(driver); //on CS
+		Thread.sleep(5000);
+		Set <String> NewHandles = driver.getWindowHandles();
+		Iterator <String> it1 = NewHandles.iterator();
+		while(it1.hasNext()){
+			NewWindow_1 = it1.next();
+			//System.out.println(NewWindow);
+			
+		}
+		driver.switchTo().window(NewWindow_1);
+		CareerSiteSelfServicePage.searchJob(driver, ReqNumber);
+		
+		
 		
 		/*Robot rb =new Robot();
 		rb.keyPress(KeyEvent.VK_ENTER);

@@ -13,6 +13,7 @@ public class RecruitingDesktopPage {
 	public static By RecruitingDesktopMenuItem = By.linkText("Recruiting Desktop");
 	public static By DispositionDropDown = By.xpath("//td[contains(@id,'widget_hmportal_candidate_disposition__reqapprovalstatus')]/span/select");
 	public static By SubmitBtn = By.id("null_button");
+	public static By SempraEnergyCSMenuItem = By.xpath("//*[@id='navigatorMenuItem100643693']/table/tbody/tr/td/div/table/tbody/tr[8]/td[2]/span/span/a");
 	
 	public static void click_ReqsMenu(WebDriver driver){
 		
@@ -52,10 +53,16 @@ public class RecruitingDesktopPage {
 	}
 	
 	public static void click_Req(WebDriver driver,String ReqNumber){
-		click_ReqsMenu(driver);
+		RecruitingDesktopPage.click_ReqsMenu(driver);
 		String link = "//nobr[text()='"+ReqNumber+"']";
 		By ReqLink = By.xpath(link);
 		driver.findElement(ReqLink).click();
+		
+	}
+	
+	public static void click_SempraEnergyCSMenuItem(WebDriver driver){
+		
+		driver.findElement(SempraEnergyCSMenuItem).click();
 		
 	}
 	
