@@ -5,10 +5,12 @@
     <classes>
       <class name="adp_demo.RM_TS_PostReq">
         <methods>
-          <include name="afterClass"/>
+          <include name="i_open_create_new_utilities_req_form"/>
+          <include name="i_fill_in_the_required_info"/>
+          <include name="setup"/>
           <include name="activated"/>
-          <include name="i_open_create_new_utilities_req_form_and_fill_in_the_required_info_and_click_Create_button"/>
-          <include name="beforeClass"/>
+          <include name="teardown"/>
+          <include name="click_Create_button"/>
           <include name="the_Req_is_Approved"/>
           <include name="published"/>
           <include name="the_job_posting_should_Show_on_the_company_career_website"/>

@@ -37,13 +37,11 @@ public class RM_TS_PostReq {
 	public static String RecruitingDesktopWindowHandle = "";
 	public static String NewWindow_1 = "";
 	public static String ReqNumber="";
-	private ExtentReports reports;
-	private ExtentTest logger;
-	
+	public static ExtentReports reports;
+	public static ExtentTest logger;
 	
    @Given("^I am logged on to the administration side of MyInfo as an HR or Recruitment Manager$")
    public  void i_am_logged_on_to_the_administration_side_of_MyInfo_as_an_HR_or_Recruitment_Manager() throws Exception {
-	   logger = reports.startTest("RM_TS_PostReq");
 	   setup();
 	   LoginPage.Login(driver,"WHaque@SEMPRANRGU","!!Mar1983");
 	   Thread.sleep(11000);
@@ -75,7 +73,6 @@ public class RM_TS_PostReq {
    
    @Given("^I fill in the required info$")
    public void i_fill_in_the_required_info(DataTable reqData)  throws Exception {
-	   
 	    Map<String, String> ReqData = reqData.asMap(String.class, String.class);
 		ReqFormPage.selectUnionJob(driver, ReqData.get("UnionJob").toString());
 		ReqFormPage.selectECRenewal_QuickHire(driver, ReqData.get("ECRenewal_Quick_Hire").toString());
@@ -109,7 +106,6 @@ public class RM_TS_PostReq {
 		ReqFormPage.setInternalQualification(driver, ReqData.get("InternalQualification").toString());
 		ReqFormPage.setApprover(driver, ReqData.get("Approver_1").toString());}
 
-   
    @When("^click Create button$")
    public void click_Create_button() throws Exception {
 	    ReqFormPage.createReqs(driver);
@@ -141,7 +137,7 @@ public class RM_TS_PostReq {
 	   RecruitingDesktopPage.click_Req(driver, ReqNumber);
 	   Thread.sleep(4000);
 	   ModifyReqPage.selectReqStatus(driver, "Active");
-	   ModifyReqPage.saveModifiedReq(driver,RecruitingDesktopWindowHandle); //Active
+	   ModifyReqPage.saveModifiedReq(driver,RecruitingDesktopWindowHandle);
 	   String modifyReqPage = logger.addScreenCapture(getscreenshot());
 	   logger.log(LogStatus.PASS, "Activate newly created Req", "Expected: Recruiter should be able to Activate the new Req | Actual: New Utils Req "+ReqNumber+" Activated successfully"+modifyReqPage);
    }
@@ -150,7 +146,7 @@ public class RM_TS_PostReq {
    public void published() throws Exception {
 	   ModifyReqPage.selectPublishTab(driver);
 	   PublishReq.click_PostLink(driver);
-	   PublishReq.PostJobToCareerSite(driver); //Posted
+	   PublishReq.PostJobToCareerSite(driver);
 	   Thread.sleep(4000);   
 	   String publishReqPage = logger.addScreenCapture(getscreenshot());
 	   logger.log(LogStatus.PASS, "Publish newly created Req", "Expected: Recruiter should be able to Publish the new Req | Actual: New Utils Req "+ReqNumber+" Published successfully"+publishReqPage);
@@ -174,10 +170,9 @@ public class RM_TS_PostReq {
 		
    }
    
-  
-  
   public void setup() throws Exception{
 	  reports = new ExtentReports("RM_TS_PostReq.html",false,DisplayOrder.NEWEST_FIRST);
+	  logger = reports.startTest("RM_TS_PostReq");
 	  DesiredCapabilities dc = new DesiredCapabilities();
 	  dc.setBrowserName("firefox");
 	  driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
