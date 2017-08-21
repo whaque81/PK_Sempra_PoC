@@ -52,8 +52,9 @@ public class RecruitingDesktopPage {
 		
 	}
 	
-	public static void click_Req(WebDriver driver,String ReqNumber){
+	public static void click_Req(WebDriver driver,String ReqNumber) throws Exception{
 		RecruitingDesktopPage.click_ReqsMenu(driver);
+		Thread.sleep(1000);
 		String link = "//nobr[text()='"+ReqNumber+"']";
 		By ReqLink = By.xpath(link);
 		driver.findElement(ReqLink).click();

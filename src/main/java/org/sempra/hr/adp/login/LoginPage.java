@@ -2,7 +2,6 @@ package org.sempra.hr.adp.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class LoginPage {
 	
@@ -17,18 +16,11 @@ public class LoginPage {
 		driver.findElement(AdminLoginLink).click();
 		driver.findElement(UserTxtBox).sendKeys(user);
 		driver.findElement(SubmitBtn).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(PasswordTxtBox).sendKeys(password);
 		driver.findElement(SubmitBtn).click();
 		
 		
-	}
-	
-	public static void main() throws Exception{
-		
-		WebDriver driver = new FirefoxDriver();
-		driver.get("https://testadpvantage.adp.com");
-		Login(driver,"WHaque@SEMPRANRGU","!!Mar1983");
 	}
 	
 
