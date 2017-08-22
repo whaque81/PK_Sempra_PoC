@@ -15,9 +15,10 @@ public class RecruitingDesktopPage {
 	public static By SubmitBtn = By.id("null_button");
 	public static By SempraEnergyCSMenuItem = By.xpath("//*[@id='navigatorMenuItem100643693']/table/tbody/tr/td/div/table/tbody/tr[8]/td[2]/span/span/a");
 	
-	public static void click_ReqsMenu(WebDriver driver){
+	public static void click_ReqsMenu(WebDriver driver) throws Exception{
 		
 		driver.findElement(ReqsMenu).click();
+		Thread.sleep(1000);
 		
 	}
 	

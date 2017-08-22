@@ -39,7 +39,9 @@ public class RM_TS_PostReq {
 	public static String ReqNumber="";
 	public static ExtentReports reports;
 	public static ExtentTest logger;
+	public static Map<String, String> Data;
 	
+
    @Given("^I am logged on to the administration side of MyInfo as an HR or Recruitment Manager$")
    public  void i_am_logged_on_to_the_administration_side_of_MyInfo_as_an_HR_or_Recruitment_Manager() throws Exception {
 	   setup();
@@ -71,7 +73,7 @@ public class RM_TS_PostReq {
 		
    }
    
-   @Given("^I fill in the required info$")
+   @When("^I fill in the required info and then click Create button$")
    public void i_fill_in_the_required_info(DataTable reqData)  throws Exception {
 	    Map<String, String> ReqData = reqData.asMap(String.class, String.class);
 		ReqFormPage.selectUnionJob(driver, ReqData.get("UnionJob").toString());
@@ -104,9 +106,11 @@ public class RM_TS_PostReq {
 		ReqFormPage.setExternalRequirements(driver, ReqData.get("ExternalRequirements").toString());
 		ReqFormPage.setInternalDescription(driver, ReqData.get("InternalDescription").toString());
 		ReqFormPage.setInternalQualification(driver, ReqData.get("InternalQualification").toString());
-		ReqFormPage.setApprover(driver, ReqData.get("Approver_1").toString());}
+		ReqFormPage.setApprover(driver, ReqData.get("Approver_1").toString());
+		click_Create_button();
+		}
 
-   @When("^click Create button$")
+   
    public void click_Create_button() throws Exception {
 	    ReqFormPage.createReqs(driver);
 		Thread.sleep(4000);
@@ -120,7 +124,7 @@ public class RM_TS_PostReq {
 		logger.log(LogStatus.PASS, "Create a new Req by filling the form appropriately", "Expected: User should be able to  Create a new Req | Actual: New Utils Req "+ReqNumber+" created successfully"+newReqPage);
 	}
    
-   @When("^the Req is Approved$")
+   @When("^when the Req is Approved$")
    public void the_Req_is_Approved() throws Exception {
 	   ReqFormPage.click_HomeMenu(driver);
 	   ReqFormPage.click_RecruitingDesktopMenuItem(driver);
@@ -167,28 +171,28 @@ public class RM_TS_PostReq {
 		CareerSiteSelfServicePage.searchJob(driver, ReqNumber);
 		String jobSearchPage = logger.addScreenCapture(getscreenshot());
 		logger.log(LogStatus.PASS, "Search newly created Req on the Career Site", "Expected: Job seekers should be able to search the newly created Req on the career site portal | Actual: Job with Req "+ReqNumber+" found successfully"+jobSearchPage);
-		
+		teardown();
    }
-   
-  public void setup() throws Exception{
-	  reports = new ExtentReports("RM_TS_PostReq.html",false,DisplayOrder.NEWEST_FIRST);
-	  logger = reports.startTest("RM_TS_PostReq");
-	  DesiredCapabilities dc = new DesiredCapabilities();
-	  dc.setBrowserName("firefox");
-	  driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
-	  driver.manage().window().maximize();
-	  driver.get("https://testadpvantage.adp.com");
-	  
-  }
-
-  public void teardown() throws Exception{
-	  Thread.sleep(2000);
-	  driver.quit();
-	  reports.endTest(logger);
-	  reports.flush();	  
-	  reports.close();
-	  
-  }
+  
+	  public void setup() throws Exception{
+		  reports = new ExtentReports("RM_TS_PostReq.html",false,DisplayOrder.NEWEST_FIRST);
+		  logger = reports.startTest("RM_TS_PostReq");
+		  DesiredCapabilities dc = new DesiredCapabilities();
+		  dc.setBrowserName("firefox");
+		  driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
+		  driver.manage().window().maximize();
+		  driver.get("https://testadpvantage.adp.com");
+		  
+	  }
+      
+	  public void teardown() throws Exception{
+		  Thread.sleep(2000);
+		  driver.quit();
+		  reports.endTest(logger);
+		  reports.flush();	  
+		  reports.close();
+		  
+	  }
   
   public String getscreenshot() throws Exception 
   {

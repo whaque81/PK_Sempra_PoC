@@ -5,11 +5,10 @@
     <classes>
       <class name="adp_demo.RM_TS_PostReq">
         <methods>
+          <include name="i_am_logged_on_to_the_administration_side_of_MyInfo_as_an_HR_or_Recruitment_Manager"/>
           <include name="i_open_create_new_utilities_req_form"/>
           <include name="i_fill_in_the_required_info"/>
-          <include name="setup"/>
           <include name="activated"/>
-          <include name="teardown"/>
           <include name="click_Create_button"/>
           <include name="the_Req_is_Approved"/>
           <include name="published"/>
