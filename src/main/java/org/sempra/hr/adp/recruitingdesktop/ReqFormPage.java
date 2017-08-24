@@ -281,6 +281,7 @@ public class ReqFormPage {
 	}
 	
 	public static String getReqNumber(WebDriver driver){
+		driver.findElement(ReqNumberText).click();
 		String ReqNumber = driver.findElement(ReqNumberText).getText().toString();
 		return ReqNumber;
 	}

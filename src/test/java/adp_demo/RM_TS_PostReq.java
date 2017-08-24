@@ -57,14 +57,14 @@ public class RM_TS_PostReq {
 	   HomePage.click_AdditionalServicesSubMenu(driver);
 	   HomePage.click_RecruitingMenuItem(driver);
 	   Thread.sleep(8000);
-	   String RDpage = logger.addScreenCapture(getscreenshot());
-	   logger.log(LogStatus.PASS, "Launch Recruiting Desktop", "Expected: User should be able to launch Recruiting Desktop app | Actual: Recruiting Desktop website opened successfully"+RDpage);
 	   Set <String> Handles = driver.getWindowHandles();
 	   Iterator <String> it = Handles.iterator();
 	   while(it.hasNext()){
 		   RecruitingDesktopWindowHandle = it.next();	
 		}
 		driver.switchTo().window(RecruitingDesktopWindowHandle);
+		String RDpage = logger.addScreenCapture(getscreenshot());
+		logger.log(LogStatus.PASS, "Launch Recruiting Desktop", "Expected: User should be able to launch Recruiting Desktop app | Actual: Recruiting Desktop website opened successfully"+RDpage);
 		RecruitingDesktopPage.click_ReqsMenu(driver);
 		RecruitingDesktopPage.click_CreateUtilitiesMenuItem(driver);
 		Thread.sleep(8000);
@@ -120,6 +120,7 @@ public class RM_TS_PostReq {
 		Thread.sleep(1000);
 		driver.switchTo().window(RecruitingDesktopWindowHandle);
 		ReqNumber = ReqFormPage.getReqNumber(driver);
+		Thread.sleep(1000);
 		String newReqPage = logger.addScreenCapture(getscreenshot());
 		logger.log(LogStatus.PASS, "Create a new Req by filling the form appropriately", "Expected: User should be able to  Create a new Req | Actual: New Utils Req "+ReqNumber+" created successfully"+newReqPage);
 	}
