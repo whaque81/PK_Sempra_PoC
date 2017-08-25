@@ -18,7 +18,7 @@ public class ContactInformation {
 	public static void enterContactInformation(WebDriver driver, WebDriverWait wait, Map<String, String> ContactInfoData) throws Exception {//, Map<String, String> ContactInfoData){
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ApplicantFirstName));
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.findElement(ApplicantFirstName).click();
 		driver.findElement(ApplicantFirstName).sendKeys(ContactInfoData.get("firstname").toString());
 		driver.findElement(ApplicantLastName).click();

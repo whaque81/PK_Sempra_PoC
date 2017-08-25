@@ -134,7 +134,7 @@ public class RM_TS_ApplyToJob {
 
 	@Then("^I should be visible to the HR or Recruiting manager in their system as an applicant for the position$")
 	public void i_should_be_visible_to_the_HR_or_Recruiting_manager_in_their_system_as_an_applicant_for_the_position() throws Throwable {
-	    driver.close();
+	    //driver.close();
 	    driver.get("https://testadpvantage.adp.com");
 	    LoginPage.Login(driver,"WHaque@SEMPRANRGU","!!Mar1983");
 		Thread.sleep(11000);
