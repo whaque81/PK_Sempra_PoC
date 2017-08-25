@@ -31,11 +31,11 @@ public class CareerSiteSelfServicePage {
 		
 		driver.findElement(JobTitle).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ApplyBtn));
-		driver.findElement(ApplyBtn);
-		driver.findElement(UserTxtbox).sendKeys("whaque123@prokarma.com");
+		driver.findElement(ApplyBtn).click();
+		driver.findElement(UserTxtbox).sendKeys("whaque060@prokarma.com");
 		driver.findElement(PasswordTxtbox).sendKeys("!!Nov1981");
 		driver.findElement(ConfirmPasswordTxtbox).sendKeys("!!Nov1981");
-		driver.findElement(CreateAccountBtn);
+		driver.findElement(CreateAccountBtn).click();
 		
 		
 	}

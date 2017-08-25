@@ -10,6 +10,7 @@ import org.sempra.hr.adp.careersite.CareerSiteSelfServicePage;
 import org.sempra.hr.adp.careersite.ContactInformation;
 import org.sempra.hr.adp.careersite.Documents;
 import org.sempra.hr.adp.careersite.EEOPage;
+import org.sempra.hr.adp.careersite.ESign;
 import org.sempra.hr.adp.careersite.EducationHistory;
 import org.sempra.hr.adp.careersite.ElectronicSignPage;
 import org.sempra.hr.adp.careersite.EmploymentHistory;
@@ -20,6 +21,7 @@ import org.sempra.hr.adp.careersite.PersonalInformation;
 import org.sempra.hr.adp.careersite.PrelimQuestionsPage;
 import org.sempra.hr.adp.careersite.ProfessionalReferences;
 import org.sempra.hr.adp.careersite.ReHireCheckPage;
+import org.sempra.hr.adp.careersite.ReviewApplication;
 import org.sempra.hr.adp.careersite.SelectSource;
 
 public class Test {
@@ -32,7 +34,7 @@ public class Test {
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setBrowserName("firefox");
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
-		WebDriverWait wait = new WebDriverWait(driver,60);
+		WebDriverWait wait = new WebDriverWait(driver,90);
 		driver.manage().window().maximize();
 		driver.get("https://recruiting-nuat.adp.com/srccar/public/RTI.home?d=SempraEnergy&_icx=v02n4qqAxGBU4EoUR8iPV%2FSGH1Mf5LZP1d0un7reeZM2BIpBY0UB%2Ftpbq8bf5bRLnDy&c=49493&_dissimuloSSO=7aRGj8pwfUg:w_4PO3n8JuD2J-eGNgh-UHMve4s");
 		CareerSiteSelfServicePage.startApplying(driver, wait);
@@ -50,8 +52,8 @@ public class Test {
 		PersonalAffiliation.click_NextStepBtn(driver, wait);
 		MilitaryHistory.click_NextBtn(driver, wait);
 		ProfessionalReferences.provideReferences(driver, wait);
-		
-		
+		ESign.eSignAndAccept(driver, wait);
+		ReviewApplication.submitAppForm(driver, wait);
 		
 
 	}

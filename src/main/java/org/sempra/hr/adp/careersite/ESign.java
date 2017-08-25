@@ -8,12 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ESign {
 	
 	public static By ESignTxtBox = By.name("esigABSignature_RTiAssignment");
-	public static By AcceptOption = By.id("dijit_form_RadioButton_0");
-	public static By NextStepBtn = By.id("dijit__WidgetBase_56");
+	public static By AcceptOption = By.xpath("//form/div[1]/div/div[2]/div[3]/div/div[2]/div/div/nobr/label[1]/div");
+	public static By NextStepBtn = By.xpath("//form[1]/div[2]/div/div[3]/div");
 	
 	public static void eSignAndAccept(WebDriver driver, WebDriverWait wait){
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ESignTxtBox));
-		driver.findElement(ESignTxtBox).sendKeys("Wasim Haque");
+		driver.findElement(ESignTxtBox).click();
+		driver.findElement(ESignTxtBox).sendKeys("Bingo Duck");
 		driver.findElement(AcceptOption).click();
 		driver.findElement(NextStepBtn).click();
 		
