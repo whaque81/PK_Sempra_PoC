@@ -16,7 +16,7 @@ public class EEOPage {
 	
 	public static void answerEEOQns(WebDriver driver, WebDriverWait wait) throws Exception{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(RaceNotLatinoOption));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(RaceNotLatinoOption).click();
 		driver.findElement(ApplicantRaceOption).click();
 		driver.findElement(GenderMaleOption).click();

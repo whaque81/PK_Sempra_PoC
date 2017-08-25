@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -120,6 +121,9 @@ public class RM_TS_PostReq {
 		Thread.sleep(1000);
 		driver.switchTo().window(RecruitingDesktopWindowHandle);
 		ReqNumber = ReqFormPage.getReqNumber(driver);
+		PropertiesConfiguration pc = new PropertiesConfiguration("ADP.properties");
+        pc.setProperty("ReqID", ReqNumber);
+        pc.save();
 		Thread.sleep(1000);
 		String newReqPage = logger.addScreenCapture(getscreenshot());
 		logger.log(LogStatus.PASS, "Create a new Req by filling the form appropriately", "Expected: User should be able to  Create a new Req | Actual: New Utils Req "+ReqNumber+" created successfully"+newReqPage);

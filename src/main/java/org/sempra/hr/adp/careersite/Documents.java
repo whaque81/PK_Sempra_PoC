@@ -16,18 +16,19 @@ public class Documents {
 	
 	public static void selectResume(WebDriver driver, WebDriverWait wait) throws Exception{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(SelectResumeBtn));
+		Thread.sleep(1000);
 		driver.findElement(SelectResumeBtn).click();
 		Thread.sleep(1000);
 		driver.findElement(CopyPasteResumeBtn).click();
 		Thread.sleep(2000);
 		driver.findElement(ResumeTxtBox).sendKeys("My one line resume...says it all");
 		driver.findElement(ImportBtn).click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		//driver.findElement(SelectResumeBtn).sendKeys(Keys.PAGE_DOWN);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(NextStepBtn));
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(NextStepBtn));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(NextStepBtn).click();
 		
 	}

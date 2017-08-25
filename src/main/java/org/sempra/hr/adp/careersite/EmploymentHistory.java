@@ -16,7 +16,7 @@ public class EmploymentHistory {
 	public static void enterEmploymentHistory(WebDriver driver, WebDriverWait wait) throws Exception{
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(EmploymentType));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(EmploymentType).click();
 		Thread.sleep(1000);
 		driver.findElement(EmploymentType).sendKeys(Keys.DOWN);
@@ -26,7 +26,7 @@ public class EmploymentHistory {
 		driver.findElement(EmploymentType).sendKeys(Keys.DOWN);
 		Thread.sleep(500);
 		driver.findElement(EmploymentType).sendKeys(Keys.ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(NextStepsBtn).click();
 	}
 	

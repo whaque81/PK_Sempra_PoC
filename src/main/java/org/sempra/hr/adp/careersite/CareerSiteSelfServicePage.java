@@ -1,5 +1,7 @@
 package org.sempra.hr.adp.careersite;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,14 +29,14 @@ public class CareerSiteSelfServicePage {
 		}
 	}
 		
-	public static void startApplying(WebDriver driver, WebDriverWait wait) throws Exception{
+	public static void startApplying(WebDriver driver, WebDriverWait wait, Map<String, String> AccountData) throws Exception{
 		
 		driver.findElement(JobTitle).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ApplyBtn));
 		driver.findElement(ApplyBtn).click();
-		driver.findElement(UserTxtbox).sendKeys("whaque060@prokarma.com");
-		driver.findElement(PasswordTxtbox).sendKeys("!!Nov1981");
-		driver.findElement(ConfirmPasswordTxtbox).sendKeys("!!Nov1981");
+		driver.findElement(UserTxtbox).sendKeys(AccountData.get("email").toString());
+		driver.findElement(PasswordTxtbox).sendKeys(AccountData.get("password").toString());
+		driver.findElement(ConfirmPasswordTxtbox).sendKeys(AccountData.get("password").toString());
 		driver.findElement(CreateAccountBtn).click();
 		
 		

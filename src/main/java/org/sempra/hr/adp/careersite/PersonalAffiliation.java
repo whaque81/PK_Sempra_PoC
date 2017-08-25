@@ -12,7 +12,7 @@ public class PersonalAffiliation {
 	
 	public static void click_NextStepBtn(WebDriver driver, WebDriverWait wait) throws Exception{
 	//wait.until(ExpectedConditions.visibilityOfElementLocated(NextStepBtn));
-	Thread.sleep(6000);	
+	Thread.sleep(5000);	
 	driver.findElement(By.name("zzcanAchieve_RTiCustomCandidate")).click();
 	JavascriptExecutor js = ((JavascriptExecutor) driver);
 	js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(NextStepBtn));

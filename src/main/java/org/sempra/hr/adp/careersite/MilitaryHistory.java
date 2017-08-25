@@ -12,10 +12,10 @@ public class MilitaryHistory {
 	
 	public static void click_NextBtn(WebDriver driver, WebDriverWait wait) throws Exception{
 		
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(NextStepBtn));
-		Thread.sleep(6000);
-		driver.findElement(By.name("zzabMilitaryBranch$1_RTiCustomCandidate")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(NextStepBtn));
 		Thread.sleep(1000);
+		driver.findElement(By.name("zzabMilitaryBranch$1_RTiCustomCandidate")).click();
+		Thread.sleep(500);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(NextStepBtn));
 		driver.findElement(NextStepBtn).click();

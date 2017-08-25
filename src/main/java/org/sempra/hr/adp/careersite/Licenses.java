@@ -12,7 +12,7 @@ public class Licenses {
 	
 	public static void click_NextStepBtn(WebDriver driver, WebDriverWait wait) throws Exception{
 		
-		Thread.sleep(6000);
+		Thread.sleep(5000);
 		driver.findElement(By.name("$$licenseDesc_1_RTiCandidate")).click();
 		Thread.sleep(1000);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);

@@ -18,33 +18,31 @@ public class ReHireCheckPage {
 	public static void rehireCheck(WebDriver driver, WebDriverWait wait) throws Exception{
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Last4SSNTxtBox));
+		Thread.sleep(1000);
 		driver.findElement(Last4SSNTxtBox).click();
-		Thread.sleep(1000);
 		driver.findElement(Last4SSNTxtBox).sendKeys("7912");
-		Thread.sleep(1000);
 		//driver.findElement(BirthDayDropDown).click();
 		//Thread.sleep(1000);
 		driver.findElement(By.xpath("//table[@id='_dd']/tbody/tr/td[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("//table[@id='_dd']/tbody/tr/td[1]")).sendKeys(Keys.DOWN);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("//table[@id='_dd']/tbody/tr/td[1]")).sendKeys(Keys.DOWN);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("//table[@id='_dd']/tbody/tr/td[1]")).sendKeys(Keys.ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		//driver.findElement(BithDayValueLabel).click();
 		//Thread.sleep(1000);
 		//driver.findElement(BirthDayMonthDropDown).click();
-		Thread.sleep(1000);
 		driver.findElement(By.xpath("//table[@id='_mm']/tbody/tr/td[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("//table[@id='_mm']/tbody/tr/td[1]")).sendKeys(Keys.DOWN);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("//table[@id='_mm']/tbody/tr/td[1]")).sendKeys(Keys.DOWN);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("//table[@id='_mm']/tbody/tr/td[1]")).sendKeys(Keys.ENTER);
 		//driver.findElement(BithdayMonthValueLabel).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(NextStepBtn).click();
 		
 		

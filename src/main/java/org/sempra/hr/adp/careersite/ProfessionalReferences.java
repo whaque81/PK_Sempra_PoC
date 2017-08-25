@@ -44,15 +44,15 @@ public class ProfessionalReferences {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(CountryDD));
 		driver.findElement(CountryDD).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(CountryDD).sendKeys(Keys.DOWN);
 		Thread.sleep(500);
 		driver.findElement(CountryDD).sendKeys(Keys.ENTER);
 		//driver.findElement(CountryValue).click();
 		driver.findElement(StateDD).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(StateValue).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(NextBtn).click();
 		
 		

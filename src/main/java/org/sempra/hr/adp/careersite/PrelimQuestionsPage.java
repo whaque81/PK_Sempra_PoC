@@ -23,6 +23,7 @@ public class PrelimQuestionsPage {
 	
 	public static void answerPrelimsQns(WebDriver driver, WebDriverWait wait) throws Exception{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(AgeYesOption));
+		Thread.sleep(1000);
 		driver.findElement(AgeYesOption).click();
 		driver.findElement(CurrentlyEmployedNoOption).click();
 		driver.findElement(DiplomaGEDYesOption).click();

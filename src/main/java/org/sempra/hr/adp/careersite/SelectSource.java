@@ -16,9 +16,9 @@ public class SelectSource {
 		Thread.sleep(1000);
 		//driver.findElement(CandidateSourceListBox).click();
 		driver.findElement(By.xpath("//table[@id='dijit_form_Select_10']/tbody/tr/td[1]")).click();
-		Thread.sleep(2000);
-		driver.findElement(CandidateSourceValue).click();
 		Thread.sleep(1000);
+		driver.findElement(CandidateSourceValue).click();
+		Thread.sleep(500);
 		driver.findElement(NextStepBtn).click();
 		
 	}

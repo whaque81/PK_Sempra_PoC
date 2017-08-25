@@ -20,8 +20,8 @@ public class PersonalInformation {
 	
 	public static void enterPersonalInfo(WebDriver driver, WebDriverWait wait) throws Exception{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Address_1_Txtbox));
-		driver.findElement(Address_1_Txtbox).click();
 		Thread.sleep(1000);
+		driver.findElement(Address_1_Txtbox).click();
 		driver.findElement(Address_1_Txtbox).sendKeys("Union Ave");
 		//driver.findElement(AddressCityTxtbox).click();
 		//driver.findElement(AddressCityTxtbox).sendKeys("Denver");
@@ -42,21 +42,20 @@ public class PersonalInformation {
 		Thread.sleep(1000);
 		driver.findElement(StateDD).sendKeys(Keys.ENTER);*/
 		
-		Thread.sleep(1000);
 		//driver.findElement(StateValue).click();
 		driver.findElement(WillingnessToTravelDD).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(TravelValueLabel).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(AnyRelativesDD).click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		//driver.findElement(AnyRelativesNoOption).click();
 		driver.findElement(AnyRelativesDD).sendKeys(Keys.DOWN);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(AnyRelativesDD).sendKeys(Keys.DOWN);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(AnyRelativesDD).sendKeys(Keys.ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(NextStepBtn).click();
 		
 		
