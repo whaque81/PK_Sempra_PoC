@@ -1,6 +1,7 @@
 package org.sempra.hr.adp.careersite;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,6 +30,9 @@ public class PrelimQuestionsPage {
 		driver.findElement(DiplomaGEDYesOption).click();
 		driver.findElement(LegalWorkAuthYesOption).click();
 		driver.findElement(CertifyInfoYesOption).click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("//form/div[2]/div[2]/div/div")));
 		driver.findElement(NextStepBtn).click();
 		
 	}

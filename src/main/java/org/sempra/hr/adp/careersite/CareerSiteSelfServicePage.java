@@ -20,7 +20,9 @@ public class CareerSiteSelfServicePage {
 	public static By CreateAccountBtn = By.xpath("//form[@name='accountCreateForm']/ul/li[3]/button");
 	
 	public static void searchJob(WebDriver driver, String ReqNumber) throws Exception{
-		
+		WebDriverWait wait = new WebDriverWait(driver,120);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(JobTitle));
+		Thread.sleep(2000);
 		while(!driver.findElements(ReqNumLabel).get(0).getText().trim().equals(ReqNumber)) {
 		driver.findElement(JobSearchBtn).click();
 		Thread.sleep(2000);}
@@ -34,6 +36,7 @@ public class CareerSiteSelfServicePage {
 		driver.findElement(JobTitle).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ApplyBtn));
 		driver.findElement(ApplyBtn).click();
+		Thread.sleep(1000);
 		driver.findElement(UserTxtbox).sendKeys(AccountData.get("email").toString());
 		driver.findElement(PasswordTxtbox).sendKeys(AccountData.get("password").toString());
 		driver.findElement(ConfirmPasswordTxtbox).sendKeys(AccountData.get("password").toString());

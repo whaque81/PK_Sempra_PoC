@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ReqFormPage {
 	
@@ -52,7 +54,10 @@ public class ReqFormPage {
 	public static By ReqNumberText = By.xpath("//*[@id='no_header_open'][3]/td/table/tbody/tr[1]/td/table/tbody/tr/td[3]/span");
 	
 	
-	public static void selectUnionJob(WebDriver driver,String strValue){
+	public static void selectUnionJob(WebDriver driver,String strValue) throws Exception{
+		WebDriverWait wait = new WebDriverWait(driver,120);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(UnionJobDropDown));
+		Thread.sleep(2000);
 		List<WebElement> dropdowns = driver.findElements(UnionJobDropDown);
 		WebElement unionDropdown = dropdowns.get(0);
 		Select dropdown = new Select(unionDropdown);
@@ -292,8 +297,8 @@ public class ReqFormPage {
 		
 	}
 
-public static void click_RecruitingDesktopMenuItem(WebDriver driver){
-		
+public static void click_RecruitingDesktopMenuItem(WebDriver driver) throws Exception{
+		Thread.sleep(1000);
 		driver.findElement(RecruitingDesktopMenuItem).click();
 		
 	}

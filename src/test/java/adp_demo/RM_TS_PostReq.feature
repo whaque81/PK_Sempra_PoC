@@ -7,9 +7,9 @@ Feature: Post job requsition
     Given I am logged on to the administration side of MyInfo as an HR or Recruitment Manager
     When I open create new utilities req form
     And I fill in the required info and then click Create button
-    | UnionJob                           | No                                 |
+      | UnionJob                           | No                                 |
       | ECRenewal_Quick_Hire               | Yes                                |
-      | Number_of_positions                |                                  1 |
+      | Number_of_positions|                                  1 |
       | Company                            | Sempra Energy-10                   |
       | Paygroup                           | Sempra Energy Corporate Center-SAM |
       | Department                         | Apps-Infra Support-CCG786          |

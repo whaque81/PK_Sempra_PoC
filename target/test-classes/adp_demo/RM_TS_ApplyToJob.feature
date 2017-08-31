@@ -9,7 +9,7 @@ Feature: Apply for a job
   Scenario: Search and apply for job on an external career site
     Given I'm on a career site
     When I select a job and I click on the Apply button to create an Account
-      | email    | whaque064@prokarma.com |
+      | email    | whaque086@prokarma.com |
       | password | !!Nov1981              |
     And fill in the required fields
       | firstname | Bingo        |

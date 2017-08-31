@@ -47,7 +47,7 @@ public class RM_TS_PostReq {
    public  void i_am_logged_on_to_the_administration_side_of_MyInfo_as_an_HR_or_Recruitment_Manager() throws Exception {
 	   setup();
 	   LoginPage.Login(driver,"WHaque@SEMPRANRGU","!!Mar1983");
-	   Thread.sleep(11000);
+	  // Thread.sleep(11000);
 	   String homepage = logger.addScreenCapture(getscreenshot());
 	   logger.log(LogStatus.PASS, "Logining into MyInfo as an HR or Recruitment Manager", "Expected: User should be able to login into MyInfo | Actual: User <whaque@prokarma.com> logged in successfully"+homepage);
   }
@@ -57,7 +57,7 @@ public class RM_TS_PostReq {
        HomePage.click_ProcessMenu(driver);
 	   HomePage.click_AdditionalServicesSubMenu(driver);
 	   HomePage.click_RecruitingMenuItem(driver);
-	   Thread.sleep(8000);
+	   //Thread.sleep(8000);
 	   Set <String> Handles = driver.getWindowHandles();
 	   Iterator <String> it = Handles.iterator();
 	   while(it.hasNext()){
@@ -68,7 +68,7 @@ public class RM_TS_PostReq {
 		logger.log(LogStatus.PASS, "Launch Recruiting Desktop", "Expected: User should be able to launch Recruiting Desktop app | Actual: Recruiting Desktop website opened successfully"+RDpage);
 		RecruitingDesktopPage.click_ReqsMenu(driver);
 		RecruitingDesktopPage.click_CreateUtilitiesMenuItem(driver);
-		Thread.sleep(8000);
+		//Thread.sleep(8000);
 		String createReqPage = logger.addScreenCapture(getscreenshot());
 		logger.log(LogStatus.PASS, "Navigate to Create Utils Req form", "Expected: User should be able to navigate to Create new Req form | Actual: Create Req form opened successfully"+createReqPage);
 		
@@ -133,7 +133,7 @@ public class RM_TS_PostReq {
    public void the_Req_is_Approved() throws Exception {
 	   ReqFormPage.click_HomeMenu(driver);
 	   ReqFormPage.click_RecruitingDesktopMenuItem(driver);
-	   Thread.sleep(4000);
+	   //Thread.sleep(4000);
 	   RecruitingDesktopPage.selectDisposition(driver, "Granted");
 	   String approveReqPage = logger.addScreenCapture(getscreenshot());
 	   logger.log(LogStatus.PASS, "Approve newly created Req", "Expected: Designated Approver should be able to Aprrove the new Req | Actual: New Utils Req "+ReqNumber+" Approved successfully"+approveReqPage);
@@ -144,7 +144,7 @@ public class RM_TS_PostReq {
    @When("^Activated$")
    public void activated() throws Exception {
 	   RecruitingDesktopPage.click_Req(driver, ReqNumber);
-	   Thread.sleep(4000);
+	   //Thread.sleep(4000);
 	   ModifyReqPage.selectReqStatus(driver, "Active");
 	   ModifyReqPage.saveModifiedReq(driver,RecruitingDesktopWindowHandle);
 	   String modifyReqPage = logger.addScreenCapture(getscreenshot());
@@ -156,7 +156,7 @@ public class RM_TS_PostReq {
 	   ModifyReqPage.selectPublishTab(driver);
 	   PublishReq.click_PostLink(driver);
 	   PublishReq.PostJobToCareerSite(driver);
-	   Thread.sleep(4000);   
+	   Thread.sleep(6000);   
 	   String publishReqPage = logger.addScreenCapture(getscreenshot());
 	   logger.log(LogStatus.PASS, "Publish newly created Req", "Expected: Recruiter should be able to Publish the new Req | Actual: New Utils Req "+ReqNumber+" Published successfully"+publishReqPage);
 	   

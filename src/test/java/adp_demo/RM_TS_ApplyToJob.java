@@ -157,6 +157,7 @@ public class RM_TS_ApplyToJob {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='outer_main_table']/tbody/tr[1]")));
 		String CandiateTab = logger.addScreenCapture(getscreenshot());
 		logger.log(LogStatus.PASS, "Application received", "Expected: Hiring manager or the recruiter should be able to view all the candiates who applied for the job | Actual: Application seen"+CandiateTab);
+		Thread.sleep(2000);
 		teardown();
 		
 	}
